@@ -12,3 +12,9 @@
 º LS
 º MORE<file>
 º GREP <string>
+
+--------------- R U N N I N G ----------------
+
+1.  Abra o terminal
+2.  gcc main.c -o exe         //gera o arquivo "exe",  que é um executável
+3.  ./exe           //roda o arquivo executável criado
