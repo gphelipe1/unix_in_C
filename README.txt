@@ -1,8 +1,3 @@
----------------- A L U N O -------------------
-
-AUTOR: Gabriel Phelipe Costa Freitas
-MATRÍCULA: 2016036483
-
 ----------- I N F O R M A Ç Õ E S ------------
 
 
