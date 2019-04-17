@@ -37,7 +37,7 @@ void more(char* filename){
 	FILE *fp;
 	char line[100];
 	
-	if( access( filename, F_OK ) != -1 ) {
+	if( access( filename, F_OK ) != -1 ) { // access is a function from <unistd.h> and it verifies if the file exists
     	fp=fopen(filename,"r");
     	while(!feof(fp)){
 			fgets(line, sizeof(line), fp);
