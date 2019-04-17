@@ -2,14 +2,13 @@
 #include<stdio.h>
 #include<string.h>
 #include<dirent.h>
-//#include<unistd.h>
-//#include<errno.h>
+#include<unistd.h>
 
-void remove_command(char *string, char *sub) {
+void remove_command(char *string, char *substring) { //Remove the command from the string
     char *match;
     int i,len;
-    len = strlen(sub);
-    match = strstr(string, sub);
+    len = strlen(substring);
+    match = strstr(string, substring);
 
     *match = '\0';
     strcat(string, match+len);
@@ -18,10 +17,10 @@ void remove_command(char *string, char *sub) {
         remove_command(string, " ");
         i++;
     }
-    
+
 }
 
-void ls(){ // - - - - -> OK, BUT HAVE SOME DOTS ISSUES
+void ls(){
 	struct dirent *d;
 	DIR *dir;
 
@@ -34,14 +33,32 @@ void ls(){ // - - - - -> OK, BUT HAVE SOME DOTS ISSUES
 
 }
 
+void more(char* filename){
+	FILE *fp;
+	char line[100];
+	
+	if( access( filename, F_OK ) != -1 ) {
+    	fp=fopen(filename,"r");
+    	while(!feof(fp)){
+			fgets(line, sizeof(line), fp);
+			puts(line);
+		}
+		fclose(fp);
+
+	} else {
+	    printf("\nFile doesn't exist\n\n");
+	}
+
+
+
+}
+
 
 int main(int argc, char *argv){
 	char input[1024];
 	char cpy[1024];
 	char *first_patth,*curl_path;
 	char*buf, *pathdir;
-	
-
 
 	system("clear");
 	first_patth=(char*)get_current_dir_name(); //taking the code's directory
@@ -65,35 +82,33 @@ int main(int argc, char *argv){
 
 
 
-		}else if(strcmp(buf,"cd")==0 ){ //================> FUNCTION - "CD" COMMAND
+		}else if(strcmp(buf,"cd")==0 ){ //================> FUNCTION CALL- "CD" COMMAND
 			remove_command(cpy,"cd ");
-			int i=chdir(cpy);
-
-			if(strcmp(first_patth, get_current_dir_name())==0){
-				printf("\n\tCould not change directory, something is wrong\n\n");
-
-			}else if(strcmp(first_patth,cpy)==0){
-				printf("\nChanged to:[ %s ]\n\n", first_patth);;
-
-			}else{
+			if(strcmp(cpy, "~")==0){
+				chdir("/home");
 				printf("\nChanged to:[ %s ]\n\n", get_current_dir_name());
+			}else{
+				int i=chdir(cpy);
+					printf("\nChanged to:[ %s ]\n\n", get_current_dir_name());
 			}
 
 
 
 
-		}else if(strcmp(buf,"ls")==0){ //================> FUNCTION - "LS" COMMAND
+		}else if(strcmp(buf,"ls")==0){ //================> FUNCTION CALL - "LS" COMMAND
 			printf("\n\t\tListing directories\n");
 			ls();
 
 
 
 
-		}else if(strcmp(buf,"pwd")==0){
-			printf("\n%s\n\n", get_current_dir_name());//================> FUNCTION - "PWD" COMMAND
+		}else if(strcmp(buf,"pwd")==0){//================> FUNCTION CALL - "PWD" COMMAND
+			printf("\n%s\n\n", get_current_dir_name());
 
 
-
+		}else if(strcmp(buf,"more")==0){//================> FUNCTION CALL - "MORE" COMMAND
+			remove_command(cpy, "more");
+			more(cpy);
 
 		}else{
 			printf("ERROR: COMMAND UNKNOWN\n");
