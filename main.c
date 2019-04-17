@@ -4,7 +4,7 @@
 #include<dirent.h>
 #include<unistd.h>
 
-void remove_command(char *string, char *substring) { //Remove the command from the string
+void remove_command(char *string, char *substring) { //Remove the command (substring) from the string
     char *match;
     int i,len;
     len = strlen(substring);
@@ -17,7 +17,6 @@ void remove_command(char *string, char *substring) { //Remove the command from t
         remove_command(string, " ");
         i++;
     }
-
 }
 
 void ls(){
@@ -37,7 +36,7 @@ void more(char* filename){
 	FILE *fp;
 	char line[100];
 	
-	if( access( filename, F_OK ) != -1 ) {
+	if( access( filename, F_OK ) != -1 ) { // access is a function from <unistd.h> and it verifies if the file exists
     	fp=fopen(filename,"r");
     	while(!feof(fp)){
 			fgets(line, sizeof(line), fp);
