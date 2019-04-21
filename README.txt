@@ -12,8 +12,6 @@
 º LS
 º MORE<file>
 º GREP <string>
-
-<<<<<<< HEAD
 ----------- I N S T R U Ç Õ E S --------------
 
 º   Para compilar o programa em um terminal linux basta executá-lo
@@ -49,16 +47,9 @@
 
 
 
- ~~~~ ~~~~ ~~~~ Extras ~~~~ ~~~~ ~~~~
+ ~~~~ ~~~~ ~~~~ Extra Features ~~~~ ~~~~ ~~~~
 º   Para sair do programa, basta digitar "exit" ou "EXIT"
 
 º   Para limpar a tela basta digitar "clear"
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-=======
---------------- R U N N I N G ----------------
-
-1.  Abra o terminal
-2.  gcc main.c -o exe         //gera o arquivo "exe",  que é um executável
-3.  ./exe           //roda o arquivo executável criado
->>>>>>> 1bea972ccd587d378a2f312966b97928364ad79e
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
