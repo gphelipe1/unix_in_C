@@ -4,6 +4,7 @@
 #include<dirent.h>
 #include<unistd.h>
 
+<<<<<<< HEAD
 //AUX STRUCTURES ======================================================================================================
 
 int look_fork(char* str){
@@ -28,6 +29,9 @@ int numbers_of_forks(char *input){
 }
 
 void remove_command(char *string, char *substring) { //Remove the command (substring) from the string
+=======
+void remove_command(char *string, char *substring) { //Remove the command from the string
+>>>>>>> 1bea972ccd587d378a2f312966b97928364ad79e
     char *match;
     int i,len;
     len = strlen(substring);
@@ -40,6 +44,7 @@ void remove_command(char *string, char *substring) { //Remove the command (subst
         remove_command(string, " ");
         i++;
     }
+<<<<<<< HEAD
 }
 
 int search(char *str,char *searched){ //look for some string 
@@ -56,6 +61,12 @@ int search(char *str,char *searched){ //look for some string
 // MAIN FUNCTIONS STRUCTURES======================================================================================================
 
 void ls(char* grep, int flag){// flag => 1 means we have a fork in the sentence
+=======
+
+}
+
+void ls(){
+>>>>>>> 1bea972ccd587d378a2f312966b97928364ad79e
 	struct dirent *d;
 	DIR *dir;
 	int cat;
@@ -116,7 +127,30 @@ char* get_grep(char* str){
 //======================================================================================================
 
 
+<<<<<<< HEAD
 //= = = = = = = = = = = =  M A I N = = = = = = = = = = = = M A I N = = = = = = = = = = = = = M A I N = = 
+=======
+void more(char* filename){
+	FILE *fp;
+	char line[100];
+	
+	if( access( filename, F_OK ) != -1 ) { // access is a function from <unistd.h> and it verifies if the file exists
+    	fp=fopen(filename,"r");
+    	while(!feof(fp)){
+			fgets(line, sizeof(line), fp);
+			puts(line);
+		}
+		fclose(fp);
+
+	} else {
+	    printf("\nFile doesn't exist\n\n");
+	}
+
+
+
+}
+
+>>>>>>> 1bea972ccd587d378a2f312966b97928364ad79e
 
 int main(int argc, char *argv){
 	//~~~~~~~~VARIABLES~~~~~~~~
@@ -124,8 +158,12 @@ int main(int argc, char *argv){
 	char input[1024];
 	char cpy[1024];
 	char *first_patth,*curl_path;
+<<<<<<< HEAD
 	char*buf, *pathdir, *aux, *grep=NULL, *grep_path;
 	int fork, cat;
+=======
+	char*buf, *pathdir;
+>>>>>>> 1bea972ccd587d378a2f312966b97928364ad79e
 
 	system("clear");
 	first_patth=(char*)get_current_dir_name(); //taking the code's directory
@@ -165,6 +203,7 @@ int main(int argc, char *argv){
 
 
 		}else if(strcmp(buf,"ls")==0){ //================> FUNCTION CALL - "LS" COMMAND
+<<<<<<< HEAD
 			if(fork==1){
 				grep=strstr(cpy,"|")+1;
 				grep_path=get_grep(grep);
@@ -174,6 +213,16 @@ int main(int argc, char *argv){
 				ls("",0);
 			}
 
+=======
+			printf("\n\t\tListing directories\n");
+			ls();
+
+
+
+
+		}else if(strcmp(buf,"pwd")==0){//================> FUNCTION CALL - "PWD" COMMAND
+			printf("\n%s\n\n", get_current_dir_name());
+>>>>>>> 1bea972ccd587d378a2f312966b97928364ad79e
 
 		}else if(strcmp(buf,"pwd")==0){//================> FUNCTION CALL - "PWD" COMMAND
 			if(fork==1){
@@ -188,6 +237,7 @@ int main(int argc, char *argv){
 			}
 
 		}else if(strcmp(buf,"more")==0){//================> FUNCTION CALL - "MORE" COMMAND
+<<<<<<< HEAD
 				if(fork==1){
 					remove_command(cpy, "more");				
 					grep=strstr(cpy," |");
@@ -200,11 +250,19 @@ int main(int argc, char *argv){
 					printf("CPY: %s\n", cpy);
 					more(cpy,"",0);
 				}
+=======
+			remove_command(cpy, "more");
+			more(cpy);
+>>>>>>> 1bea972ccd587d378a2f312966b97928364ad79e
 
 		}else{
 			printf("ERROR: COMMAND UNKNOWN\n");
 		}
 		
 	}
+<<<<<<< HEAD
 	free(grep_path);
 }
+=======
+}
+>>>>>>> 1bea972ccd587d378a2f312966b97928364ad79e
