@@ -28,9 +28,6 @@ int numbers_of_forks(char *input){
 }
 
 void remove_command(char *string, char *substring) { //Remove the command (substring) from the string
-=======
-void remove_command(char *string, char *substring) { //Remove the command from the string
->>>>>>> 1bea972ccd587d378a2f312966b97928364ad79e
     char *match;
     int i,len;
     len = strlen(substring);
@@ -59,11 +56,6 @@ int search(char *str,char *searched){ //look for some string
 // MAIN FUNCTIONS STRUCTURES======================================================================================================
 
 void ls(char* grep, int flag){// flag => 1 means we have a fork in the sentence
-=======
-
-}
-
-void ls(){
 	struct dirent *d;
 	DIR *dir;
 	int cat;
@@ -123,26 +115,8 @@ char* get_grep(char* str){
 }
 //======================================================================================================
 
+
 //= = = = = = = = = = = =  M A I N = = = = = = = = = = = = M A I N = = = = = = = = = = = = = M A I N = = 
-void more(char* filename){
-	FILE *fp;
-	char line[100];
-	
-	if( access( filename, F_OK ) != -1 ) { // access is a function from <unistd.h> and it verifies if the file exists
-    	fp=fopen(filename,"r");
-    	while(!feof(fp)){
-			fgets(line, sizeof(line), fp);
-			puts(line);
-		}
-		fclose(fp);
-
-	} else {
-	    printf("\nFile doesn't exist\n\n");
-	}
-
-
-
-}
 
 int main(int argc, char *argv){
 	//~~~~~~~~VARIABLES~~~~~~~~
@@ -152,7 +126,7 @@ int main(int argc, char *argv){
 	char *first_patth,*curl_path;
 	char*buf, *pathdir, *aux, *grep=NULL, *grep_path;
 	int fork, cat;
-	char*buf, *pathdir;
+
 	system("clear");
 	first_patth=(char*)get_current_dir_name(); //taking the code's directory
 	
@@ -199,14 +173,7 @@ int main(int argc, char *argv){
 				printf("\n\t\tListing directories\n");
 				ls("",0);
 			}
-			printf("\n\t\tListing directories\n");
-			ls();
 
-
-
-
-		}else if(strcmp(buf,"pwd")==0){//================> FUNCTION CALL - "PWD" COMMAND
-			printf("\n%s\n\n", get_current_dir_name());
 
 		}else if(strcmp(buf,"pwd")==0){//================> FUNCTION CALL - "PWD" COMMAND
 			if(fork==1){
@@ -233,8 +200,6 @@ int main(int argc, char *argv){
 					printf("CPY: %s\n", cpy);
 					more(cpy,"",0);
 				}
-			remove_command(cpy, "more");
-			more(cpy);
 
 		}else{
 			printf("ERROR: COMMAND UNKNOWN\n");
@@ -242,5 +207,4 @@ int main(int argc, char *argv){
 		
 	}
 	free(grep_path);
-}
 }
