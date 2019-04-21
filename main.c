@@ -123,12 +123,11 @@ int main(int argc, char *argv){
 
 	char input[1024];
 	char cpy[1024];
-	char *first_patth,*curl_path;
+	char *curl_path;
 	char*buf, *pathdir, *aux, *grep=NULL, *grep_path;
 	int fork, cat;
 
 	system("clear");
-	first_patth=(char*)get_current_dir_name(); //taking the code's directory
 	
 
 	while(1){ 				//~~~~~~~~~~~~~~~~~~~~~~> type "EXIT" or "exit" to leave the program
