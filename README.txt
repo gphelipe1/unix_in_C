@@ -1,4 +1,4 @@
------------ I N F O R M A Ç Õ E S ------------
+----------- I N F O R M A Ç Õ E S - MADE IN - ------------
 
 
 º Sistema >  Elementary OS 0.4.1 Loki
