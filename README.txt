@@ -45,6 +45,10 @@
     Para limitar a saída do arquivo com o GREP, basta digitar 
     no formato: more arquivo.txt | grep _string_de_busca_
 
+º   Para utilizar dois comandos (pipe), basta utilizar no formato do
+    exemplo a seguir:
+        Ex: cd /home/user/Documentos | ls
+        Ex: ls | pwd
 
 
  ~~~~ ~~~~ ~~~~ Extra Features ~~~~ ~~~~ ~~~~
