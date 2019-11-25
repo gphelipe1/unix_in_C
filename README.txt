@@ -50,6 +50,9 @@
         Ex: cd /home/user/Documentos | ls
         Ex: ls | pwd
 
+º   OBSERVAÇÃO: O pipe só é feito entre dois comandos e o comando GREP não
+foi completamente implementado, então não existe a possibilidade de usá-lo
+sozinho
 
  ~~~~ ~~~~ ~~~~ Extra Features ~~~~ ~~~~ ~~~~
 º   Para sair do programa, basta digitar "exit" ou "EXIT"
