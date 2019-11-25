@@ -35,7 +35,7 @@
         Ex: cd /home/usuario/Documentos
         Ex  cd .. (volta para o diretório anterior)
         Ex  cd ~ (vai para a pasta home)
-        Ex  (já na pasta home) cd usuario 
+        Ex  (já no diretório home) cd usuario 
 
 
 
